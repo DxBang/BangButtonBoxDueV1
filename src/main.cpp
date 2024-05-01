@@ -34,7 +34,7 @@ const unsigned char luminosityGroupsLimit[] = {
 	230, // 2 yellow
 	180, // 3 green
 	255, // 3 blue
-	250, // 4 white
+	255, // 4 white
 };
 
 // number of luminosity groups

@@ -59,8 +59,8 @@
 #define B_NAVIGATION_DOWN 44
 #define B_NAVIGATION_LEFT 46
 #define B_NAVIGATION_RIGHT 48
-#define B_SELECT 52 // 50
-#define B_BACK 50 // 52
+#define B_SELECT 50 // 50
+#define B_BACK 52 // 52
 
 // 39 is reserved for future use
 // 41 is reserved for future use
@@ -77,11 +77,11 @@
 #define B_MODE 62
 #define B_SPECIAL 63
 #define B_VOLUME 64
-#define B_TRACTION_CONTROL 65
-#define B_BRAKE_BIAS 66
+#define B_BRAKE_BIAS 65
+#define B_TRACTION_CONTROL 66
 #define B_ENGINE_MAP 67
-#define B_TRACKING_CONTROL_CUT 68
-#define B_ANTILOCK_BRAKING_SYSTEM 69
+#define B_ANTILOCK_BRAKING_SYSTEM 68
+#define B_TRACKING_CONTROL_CUT 69
 
 // 2x8 duponts
 #define E_MODE_UP 14
@@ -90,26 +90,27 @@
 #define E_SPECIAL_DN A1
 #define E_VOLUME_UP 16
 #define E_VOLUME_DN A2
-#define E_TRACTION_CONTROL_UP 17
-#define E_TRACTION_CONTROL_DN A3
-#define E_BRAKE_BIAS_UP 18
-#define E_BRAKE_BIAS_DN A4
+#define E_BRAKE_BIAS_UP 17
+#define E_BRAKE_BIAS_DN A3
+#define E_TRACTION_CONTROL_UP 18
+#define E_TRACTION_CONTROL_DN A4
 #define E_ENGINE_MAP_UP 19
 #define E_ENGINE_MAP_DN A5
-#define E_TRACKING_CONTROL_CUT_UP 20
-#define E_TRACKING_CONTROL_CUT_DN A6
-#define E_ANTILOCK_BRAKING_SYSTEM_UP 21
-#define E_ANTILOCK_BRAKING_SYSTEM_DN A7
+#define E_ANTILOCK_BRAKING_SYSTEM_UP 20
+#define E_ANTILOCK_BRAKING_SYSTEM_DN A6
+#define E_TRACKING_CONTROL_CUT_UP 21
+#define E_TRACKING_CONTROL_CUT_DN A7
+
 
 // index ids for rotary encoders
 #define E_MODE 0
 #define E_SPECIAL 1
 #define E_VOLUME 2
-#define E_TRACTION_CONTROL 3
-#define E_BRAKE_BIAS 4
+#define E_BRAKE_BIAS 3
+#define E_TRACTION_CONTROL 4
 #define E_ENGINE_MAP 5
-#define E_TRACKING_CONTROL_CUT 6
-#define E_ANTILOCK_BRAKING_SYSTEM 7
+#define E_ANTILOCK_BRAKING_SYSTEM 6
+#define E_TRACKING_CONTROL_CUT 7
 
 /*
 button pins to index
@@ -390,7 +391,7 @@ class Controller {
 			this->intensity = intensity;
 		};
 		void button(unsigned char index, bool pressed) {
-			game->button(index, pressed);
+			this->game->button(index, pressed);
 		};
 		void begin() {
 			// check if SerialUSB is available
@@ -399,7 +400,7 @@ class Controller {
 				SerialUSB.print(name);
 				SerialUSB.println(")");
 			}
-			game->begin();
+			this->game->begin();
 		};
 		void end() {
 			// check if SerialUSB is available
@@ -408,10 +409,10 @@ class Controller {
 				SerialUSB.print(name);
 				SerialUSB.println(")");
 			}
-			game->end();
+			this->game->end();
 		};
 		float getIntensity() {
-			return intensity;
+			return this->intensity;
 		};
 		void setIntensity(float intensity) {
 			this->intensity = intensity;

@@ -190,9 +190,9 @@ class AssettoCorsaCompetizione : public Game {
 				if (SerialUSB) {
 					SerialUSB.println("startEngine");
 				}
-				this->hold('e');
+				this->hold('s');
 			} else {
-				this->release('e');
+				this->release('s');
 			}
 		}
 		void ignition(bool pressed) { // B_IGNITION
